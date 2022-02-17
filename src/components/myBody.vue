@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     This is the Body
     <div class="row">
       <div class="col s12"><myRecipes /></div>

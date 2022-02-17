@@ -12,23 +12,21 @@
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"
           ><i class="material-icons">menu</i></a
         >
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/second">Second</router-link></li>
-        </ul>
+        <navLinks id="nav-mobile" classes="right hide-on-med-and-down" />
       </div>
     </nav>
 
-    <ul class="sidenav" id="mobile-demo">
-      <li><router-link to="/">Home</router-link></li>
-      <li><router-link to="/second">Second</router-link></li>
-    </ul>
+    <navLinks id="mobile-demo" classes="sidenav" />
   </div>
 </template>
 
 <script>
+import navLinks from "@/components/navLinks";
 export default {
   name: "myHeader",
+  components: {
+    navLinks,
+  },
 };
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -38,4 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 <style>
+.navbar-fixed {
+  margin-bottom: 5%;
+}
 </style>
