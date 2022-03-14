@@ -1,8 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
+import store from "../vuex/index";
 import Home from "@/components/Home";
-import secondPage from "@/components/secondePage";
-import recipeShow from "@/components/recipeShow";
+import recipeCreate from "@/components/recipes/recipeCreate";
+import recipeShow from "@/components/recipes/recipeShow";
 import login from "@/components/login";
 
 Vue.use(Router);
@@ -14,8 +15,8 @@ const routes = [
     name: "home"
   },
   {
-    path: "/second",
-    component: secondPage
+    path: "/recipe_create",
+    component: recipeCreate
   },
   { path: "/recipe/:id", component: recipeShow },
   { path: "/login", component: login, name: "Login" }
@@ -27,10 +28,9 @@ const routes = [
 }); */
 const router = new Router({ routes: routes });
 
-router.beforeResolve((to, from, next) => {
-  console.error(router.app.$store.state);
-  if (to.name !== "Login" && router.app.$store.state.jwt === "")
-    next({ name: "Login" });
+router.beforeEach((to, from, next) => {
+  if (to.name !== "Login" && store.state.jwt === "")
+    return next({ name: "Login" });
   else next();
 });
 

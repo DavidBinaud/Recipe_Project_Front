@@ -9,7 +9,7 @@
 
 
 <script>
-import myRecipes from "./myRecipes";
+import myRecipes from "@/components/recipes/myRecipes";
 
 export default {
   name: "myBody",

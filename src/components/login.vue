@@ -2,7 +2,7 @@
   <div class="row">
     <div>Formulaire de connexion</div>
     <form @submit="checkForm" method="post">
-        <p v-if="errors.length">
+        <p v-if="errors.length > 0">
           <b>Please correct the following error(s):</b>
           <ul>
             <li v-for="error in errors">{{ error }}</li>

@@ -6,13 +6,7 @@
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
-        <router-link to="/" class="brand-logo"
-          ><span class="material-icons">face</span></router-link
-        >
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"
-          ><i class="material-icons">menu</i></a
-        >
-        <navLinks id="nav-mobile" classes="right hide-on-med-and-down" />
+        <navLinks id="nav-mobile" classes="right" />
       </div>
     </nav>
 
@@ -28,11 +22,6 @@ export default {
     navLinks,
   },
 };
-
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.querySelectorAll(".sidenav");
-  var instances = M.Sidenav.init(elems, options);
-});
 </script>
 
 <style>

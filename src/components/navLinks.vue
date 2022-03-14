@@ -1,7 +1,13 @@
 <template>
   <ul :id="id" :class="classes">
-    <li><router-link to="/">Home</router-link></li>
-    <li><router-link to="/second">Second</router-link></li>
+    <li>
+      <router-link v-if="this.$store.state.jwt !== ''" to="/">Home</router-link>
+    </li>
+    <li>
+      <router-link v-if="this.$store.state.jwt !== ''" to="/recipe_create"
+        >Créer une recette</router-link
+      >
+    </li>
     <li>
       <router-link v-if="this.$store.state.jwt === ''" to="/login"
         >Login</router-link

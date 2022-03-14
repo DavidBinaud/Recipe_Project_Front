@@ -15,3 +15,14 @@ export const getJWT = (email, password) => {
     password: password
   });
 };
+
+export const createRecipe = (object, jwt) => {
+  const config = {
+    headers: { Authorization: `Bearer ${jwt}` }
+  };
+  return axios.post(
+    "https://node-recipe-project.herokuapp.com/recipes/",
+    object,
+    config
+  );
+};

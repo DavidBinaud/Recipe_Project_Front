@@ -1,8 +1,10 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { getRecipes } from "@/helper/apiHelper";
-import { getRecipe } from "@/helper/apiHelper";
-import { getJWT } from "@/helper/apiHelper";
+import Router from "../router/index";
+import { getRecipes } from "@/api/apiHelper";
+import { getRecipe } from "@/api/apiHelper";
+import { createRecipe } from "@/api/apiHelper";
+import { getJWT } from "@/api/apiHelper";
 
 Vue.use(Vuex);
 
@@ -14,11 +16,10 @@ const state = {
     email: "",
     password: ""
   },
-  contact: {
-    firstname: "",
-    lastname: "",
-    subject: "",
-    content: ""
+  recipeCreation: {
+    name: "",
+    items: "",
+    steps: ""
   }
 };
 
@@ -29,17 +30,14 @@ const mutations = {
   refreshCurrentRecipe(state, recipe) {
     state.currentRecipe = recipe;
   },
-  updateFirstname(state, firstname) {
-    state.contact.firstname = firstname;
+  updateRecipeCreationName(state, name) {
+    state.recipeCreation.name = name;
   },
-  updateLastname(state, lastname) {
-    state.contact.lastname = lastname;
+  updateRecipeCreationItems(state, items) {
+    state.recipeCreation.items = items;
   },
-  updateSubject(state, subject) {
-    state.contact.subject = subject;
-  },
-  updateContent(state, content) {
-    state.contact.content = content;
+  updateRecipeCreationSteps(state, steps) {
+    state.recipeCreation.steps = steps;
   },
   updateEmail(state, email) {
     state.login.email = email;
@@ -66,6 +64,8 @@ const actions = {
         }
 
         context.commit("updateJWT", data.jwt);
+        Router.push({ name: "home" });
+        return Promise.resolve();
       })
       .catch((error) => {
         this.errorMessage = error;
@@ -104,6 +104,29 @@ const actions = {
         }
 
         context.commit("refreshCurrentRecipe", data);
+      })
+      .catch((error) => {
+        this.errorMessage = error;
+        console.error("There was an error!", error);
+      });
+  },
+  createRecipe(context) {
+    let recipe = {
+      name: state.recipeCreation.name,
+      items: state.recipeCreation.items,
+      steps: state.recipeCreation.steps
+    };
+    createRecipe(recipe, state.jwt)
+      .then(async (response) => {
+        const data = await response.data;
+        console.log(response);
+        // check for error response
+        if (response.status !== 200) {
+          // get error message from body or default to response statusText
+          const error = (data && data.message) || response.statusText;
+          return Promise.reject(error);
+        }
+        Router.push({ name: "home" });
       })
       .catch((error) => {
         this.errorMessage = error;
