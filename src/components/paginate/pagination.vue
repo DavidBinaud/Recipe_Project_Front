@@ -6,7 +6,7 @@
       name="pagination"
       id="my-pagination-select"
       v-model="itemNumber"
-      @change="$emit('pagination-change', 1, itemNumber)"
+      @change="changeNumberPerPage(itemNumber)"
     >
       <option disabled value="">Please select one</option>
       <option>5</option>
@@ -114,6 +114,11 @@ export default {
     toPage(p) {
       this.page = p;
       this.$emit("pagination-change", this.page, this.itemNumber);
+    },
+    changeNumberPerPage(k) {
+      this.page = 1;
+      this.itemNumber = k;
+      this.$emit("pagination-change", 1, this.itemNumber);
     },
   },
 };

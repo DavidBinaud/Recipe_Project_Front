@@ -28,7 +28,7 @@
     </table>
     <pagination @pagination-change="paginationChange" :size="recipes.length" />
   </div>
-  <div v-else>Aucune recettes</div>
+  <div v-else>Aucune recette</div>
 </template>
 
 <script>
