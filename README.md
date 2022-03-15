@@ -7,9 +7,7 @@ Ce projet propose aux utilisateurs de créer un compte afin d'accéder à une li
 
 ## Front
 
-[Recipe_Project_Front](https://github.com/DavidBinaud/Recipe_Project_Front)
-
-Est le module frontend développé avec Vue.js 2
+ceci est le module frontend développé avec Vue.js 2
 
 ### Installation (linux macOS)
 
