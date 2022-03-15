@@ -126,7 +126,7 @@ const actions = {
           if (response.status !== 200) {
             // get error message from body or default to response statusText
             const error = (data && data.message) || response.statusText;
-            return Promise.reject(error);
+            return reject(error);
           }
 
           context.commit("refreshCurrentRecipe", data);

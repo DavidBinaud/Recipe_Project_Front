@@ -5,7 +5,7 @@
         <p v-if="errors.length > 0">
           <b>Please correct the following error(s):</b>
           <ul>
-            <li v-for="error in errors">{{ error }}</li>
+            <li v-for="error in errors" :key="error">{{ error }}</li>
           </ul>
         </p>
       <!-- Ici je relie mes input aux données de mon composant avec un v-model -->

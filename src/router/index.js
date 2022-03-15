@@ -61,8 +61,7 @@ let publicRoutes = ["Login", "UserCreation", "Logout"];
 
 router.beforeEach((to, from, next) => {
   //Public
-  if (to.hasOwnProperty("name") && publicRoutes.includes(to.name))
-    return next();
+  if (to.name !== undefined && publicRoutes.includes(to.name)) return next();
   else if (store.state.jwt !== "") return next();
   else return next({ name: "Login" });
 });
