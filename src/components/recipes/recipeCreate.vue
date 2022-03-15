@@ -5,9 +5,17 @@
       <label for="name">Nom</label>
       <input v-model="name" id="name" />
       <label for="items">Ingrédients</label>
-      <textarea v-model="items" id="items"></textarea>
+      <textarea
+        v-model="items"
+        id="items"
+        class="materialize-textarea"
+      ></textarea>
       <label for="steps">Etapes</label>
-      <textarea v-model="steps" id="steps"></textarea>
+      <textarea
+        v-model="steps"
+        id="steps"
+        class="materialize-textarea"
+      ></textarea>
 
       <button type="submit">Envoyer</button>
     </form>
