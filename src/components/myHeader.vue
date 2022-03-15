@@ -6,6 +6,16 @@
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
+        <ul
+          v-if="this.$store.state.jwt !== ''"
+          class="left hide-on-med-and-down"
+        >
+          <li>
+            <div id="welcome">
+              Bonjour, {{ this.$store.state.login.username }}
+            </div>
+          </li>
+        </ul>
         <navLinks id="nav-mobile" classes="right" />
       </div>
     </nav>
@@ -27,5 +37,9 @@ export default {
 <style>
 .navbar-fixed {
   margin-bottom: 5%;
+}
+
+#welcome {
+  margin-left: 1em;
 }
 </style>

@@ -20,7 +20,13 @@
                 >TP Vue</a
               >
             </li>
-            <li><a class="grey-text text-lighten-3" href="">Doc Vue</a></li>
+            <li>
+              <a
+                class="grey-text text-lighten-3"
+                href="https://vuejs.org/guide/introduction.html"
+                >Doc Vue</a
+              >
+            </li>
             <li>
               <a
                 class="grey-text text-lighten-3"
@@ -40,7 +46,7 @@
       </div>
     </div>
     <div class="footer-copyright">
-      <div class="container">© 2022 David Binaud</div>
+      <div class="container">© 2022 David Binaud - Clément Delafontaine</div>
     </div>
   </footer>
 </template>

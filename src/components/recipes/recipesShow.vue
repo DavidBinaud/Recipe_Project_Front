@@ -6,7 +6,7 @@
 import recipesList from "./recipesList";
 
 export default {
-  name: "myRecipes",
+  name: "recipesShow",
   components: {
     recipesList,
   },
@@ -17,9 +17,7 @@ export default {
   },
   computed: {
     recipes() {
-      return this.$store.state.recipes.filter(
-        (recipe) => recipe.created_by.email === this.$store.state.login.email
-      );
+      return this.$store.state.recipes;
     },
   },
   mounted() {

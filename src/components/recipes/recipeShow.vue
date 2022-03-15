@@ -8,6 +8,18 @@
         <div>{{ item }}</div>
       </div>
     </div>
+    <div class="col s6">
+      <strong>Auteur : </strong>
+      {{ this.$store.state.currentRecipe.created_by.username }}
+    </div>
+    <router-link
+      v-if="
+        this.$store.state.currentRecipe.created_by.email ==
+        this.$store.state.login.email
+      "
+      :to="url"
+      >Modifier la recette
+    </router-link>
   </div>
 </template>
 
@@ -20,6 +32,9 @@ export default {
         return this.$store.state.currentRecipe.items;
       }
       return [this.$store.state.currentRecipe.items];
+    },
+    url() {
+      return "/modify_recipe/" + this.$route.params.id;
     },
   },
   mounted() {

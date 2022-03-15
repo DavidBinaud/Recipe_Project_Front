@@ -2,12 +2,12 @@
   <div class="row">
     <form @submit="checkForm" method="post">
       <!-- Ici je relie mes input aux données de mon composant avec un v-model -->
-      <input v-model="name" id="name" />
       <label for="name">Nom</label>
-      <textarea v-model="items" id="items"></textarea>
+      <input v-model="name" id="name" />
       <label for="items">Ingrédients</label>
-      <textarea v-model="steps" id="steps"></textarea>
+      <textarea v-model="items" id="items"></textarea>
       <label for="steps">Etapes</label>
+      <textarea v-model="steps" id="steps"></textarea>
 
       <button type="submit">Envoyer</button>
     </form>
@@ -59,7 +59,6 @@ export default {
       if (this.$store.state.recipeCreation.steps === "") {
         this.errors.push("Etapes cannot be empty");
       }
-      console.error(this.name, this.items, this.steps);
       this.$store.dispatch("createRecipe");
     },
   },

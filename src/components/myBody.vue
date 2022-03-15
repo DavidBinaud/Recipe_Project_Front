@@ -1,20 +1,19 @@
 <template>
   <div>
-    This is the Body
     <div class="row">
-      <div class="col s12"><myRecipes /></div>
+      <div class="col s12"><recipesShow /></div>
     </div>
   </div>
 </template>
 
 
 <script>
-import myRecipes from "@/components/recipes/myRecipes";
+import recipesShow from "@/components/recipes/recipesShow";
 
 export default {
   name: "myBody",
   components: {
-    myRecipes,
+    recipesShow,
   },
 };
 </script>
